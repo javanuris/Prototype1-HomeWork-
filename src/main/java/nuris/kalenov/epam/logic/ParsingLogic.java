@@ -48,7 +48,7 @@ public class ParsingLogic {
         return word;
     }
 
-    private static Text parseLetter(String letters) {
+    public static Text parseLetter(String letters) {
         Text bit = new Text();
         char[] letter = letters.toCharArray();
         for (char wordSymbol : letter) {

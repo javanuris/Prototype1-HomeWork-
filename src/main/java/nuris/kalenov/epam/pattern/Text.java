@@ -3,21 +3,15 @@ package nuris.kalenov.epam.pattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Text implements TextPartComposite {
+public class Text extends TextPartComposite {
     public List<TextPartComposite> components = new ArrayList<TextPartComposite>();
-    StringBuilder builder = new StringBuilder();
 
-
-    public StringBuilder toText(StringBuilder sb) {
+    public StringBuilder toText() {
+        StringBuilder sb = new StringBuilder();
         for (TextPartComposite component : components) {
-            builder = new StringBuilder();
-            component.toText(builder);
+            sb.append(component.toText());
         }
-        return builder;
-    }
-
-    public StringBuilder getBuilder() {
-        return builder;
+        return sb;
     }
 
     public void addComponent(TextPartComposite component) {

@@ -8,11 +8,11 @@ import java.io.PrintWriter;
 /**
  * Created by User on 07.02.2017.
  */
-public class Read {
+public class ReadWrite {
 
     public static final String pathToRead = "./src/main/resources/test.txt";
 
-    static String readFile(String file) throws IOException {
+   public  static String readFile(String file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -29,14 +29,14 @@ public class Read {
         }
     }
 
-    static void writeFile(String file) {
+    public static void writeFile(String file) {
 
         try {
             PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
             writer.print(file);
             writer.close();
         } catch (IOException e) {
-            // do something
+
         }
 
     }
