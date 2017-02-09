@@ -1,14 +1,13 @@
 package nuris.kalenov.epam.inout;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  * Загружает записывает и выгружает файл формата txt.
  */
 public class ReadWrite {
+
+
     /**
      * Путь до рассположение файла, с которого будут считанны данные.
      */
@@ -23,10 +22,8 @@ public class ReadWrite {
     public static final String CODING = "UTF-8";
 
     /**
-     * Загружает файл , и считывает его.
-     * @param file текствое поле , котрый указывает пут загрузкий файла.
-     * */
-    public static String readFile(String file) throws IOException {
+     * Загружает файл , и считывает его.  */
+  /*  public static String readFile(String file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -41,6 +38,33 @@ public class ReadWrite {
         } finally {
             reader.close();
         }
+    }*/
+
+    public static String readTextFile(){
+        String myText = "";
+        char lf =  0x0A;
+        String endLine = ""+lf;
+        try (FileInputStream myFile = new FileInputStream("./src/main/resources/test.txt");
+             InputStreamReader inputStreamReader = new InputStreamReader(myFile, "UTF-8");
+             BufferedReader reader = new BufferedReader(inputStreamReader)) {
+
+            String nextLine;
+            boolean eof = false;
+            while (!eof) {
+                nextLine = reader.readLine();
+                if (nextLine == null){
+                    eof = true;
+                } else {
+
+                    myText += nextLine+endLine;
+
+                }
+            }
+
+        }catch (IOException e){
+            System.out.println("Can't read Stalking.txt");
+        }
+return myText;
     }
 
     /**
@@ -56,4 +80,10 @@ public class ReadWrite {
 
         }
     }
+
+
+
+
+
+
 }

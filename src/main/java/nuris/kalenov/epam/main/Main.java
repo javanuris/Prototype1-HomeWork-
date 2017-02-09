@@ -15,9 +15,9 @@ public class Main {
     public static void main(String[] args) {
         String filetxt = "";
         try {
-            filetxt = ReadWrite.readFile(ReadWrite.PATH_TO_READ);
-        } catch (IOException e) {
-            e.printStackTrace();
+            filetxt = ReadWrite.readTextFile();
+        } catch (Exception e){
+
         }
         try {
             execute(filetxt);
@@ -34,7 +34,7 @@ public class Main {
     private static void execute(String str) throws IOException {
         Text text = ParsingLogic.parseText(str);
         StringBuilder stringBuilder = text.toText();
-        ReadWrite.writeFile(stringBuilder.toString());
+        ReadWrite.writeFile(str);
         System.out.print(stringBuilder);
     }
 
