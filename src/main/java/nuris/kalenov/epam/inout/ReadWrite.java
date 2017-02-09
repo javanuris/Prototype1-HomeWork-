@@ -6,13 +6,27 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by User on 07.02.2017.
+ * Загружает записывает и выгружает файл формата txt.
  */
 public class ReadWrite {
+    /**
+     * Путь до рассположение файла, с которого будут считанны данные.
+     */
+    public static final String PATH_TO_READ = "./src/main/resources/test.txt";
+    /**
+     * Наименоание файла который будет создан
+     */
+    public static final String FILE_NAME = "the-file-name.txt";
+    /**
+     * Кодировка текста который будет записан.
+     */
+    public static final String CODING = "UTF-8";
 
-    public static final String pathToRead = "./src/main/resources/test.txt";
-
-   public  static String readFile(String file) throws IOException {
+    /**
+     * Загружает файл , и считывает его.
+     * @param file текствое поле , котрый указывает пут загрузкий файла.
+     * */
+    public static String readFile(String file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -29,17 +43,17 @@ public class ReadWrite {
         }
     }
 
+    /**
+     * Записывает файл.
+     * @param file текствое поле , котрый дает имя файлу.
+     * */
     public static void writeFile(String file) {
-
         try {
-            PrintWriter writer = new PrintWriter("the-file-name.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter(FILE_NAME, CODING);
             writer.print(file);
             writer.close();
         } catch (IOException e) {
 
         }
-
     }
-
-
 }
