@@ -23,7 +23,7 @@ public class ReadWrite {
 
     /**
      * Загружает файл , и считывает его.  */
-  /*  public static String readFile(String file) throws IOException {
+    public static String readFile(String file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -38,9 +38,9 @@ public class ReadWrite {
         } finally {
             reader.close();
         }
-    }*/
+    }
 
-    public static String readTextFile(){
+   public static String readTextFile(){
         String myText = "";
         char lf =  0x0A;
         String endLine = ""+lf;

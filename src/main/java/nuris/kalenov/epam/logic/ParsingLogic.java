@@ -91,7 +91,7 @@ public class ParsingLogic {
         char[] letter = letterString.toCharArray();
         for (char wordSymbol : letter) {
             COUNT_LETTER++;
-            Bit chars = Bit.valueOf(wordSymbol);
+            Bit chars = new Bit(wordSymbol);
             bit.addComponent(chars);
         }
         return bit;
